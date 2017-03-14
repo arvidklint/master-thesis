@@ -1,0 +1,13 @@
+{
+  "data" : [
+    {
+      "text" : "hello",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"greeting\""
+        }
+      ]
+    }
+  ]
+}

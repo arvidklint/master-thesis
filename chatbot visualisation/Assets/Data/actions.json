@@ -4,6 +4,21 @@
       "id" : "template-Hello friend",
       "type" : "template",
       "template" : "Hello friend"
+    },
+    {
+      "id" : "template-Hello enemy",
+      "type" : "template",
+      "template" : "Hello friend"
+    },
+    {
+      "id" : "template-Hello dude",
+      "type" : "template",
+      "template" : "Hello friend"
+    },
+    {
+      "id" : "template-Hello Emil",
+      "type" : "template",
+      "template" : "Hello friend"
     }
   ]
 }

@@ -1,24 +1,275 @@
 {
   "data" : [
     {
-      "id" : "template-Hello friend",
+      "id" : "template-...Because their horns doesn't work!",
       "type" : "template",
-      "template" : "Hello friend"
+      "template" : "...Because their horns doesn't work!"
     },
     {
-      "id" : "template-Hello enemy",
+      "id" : "template-...Get it? \"How Long\"",
       "type" : "template",
-      "template" : "Hello friend"
+      "template" : "...Get it? \"How Long\""
     },
     {
-      "id" : "template-Hello dude",
+      "id" : "template-Alrighty!",
       "type" : "template",
-      "template" : "Hello friend"
+      "template" : "Alrighty!"
     },
     {
-      "id" : "template-Hello Emil",
+      "id" : "template-As you wish!",
       "type" : "template",
-      "template" : "Hello friend"
+      "template" : "As you wish!"
+    },
+    {
+      "id" : "template-Ay matey!",
+      "type" : "template",
+      "template" : "Ay matey!"
+    },
+    {
+      "id" : "template-Classic!",
+      "type" : "template",
+      "template" : "Classic!"
+    },
+    {
+      "id" : "template-Cow 1: Did you hear about ",
+      "type" : "template",
+      "template" : "Cow 1: Did you hear about "
+    },
+    {
+      "id" : "template-Cow 1: Did you hear about the outbreak and ",
+      "type" : "template",
+      "template" : "Cow 1: Did you hear about the outbreak and "
+    },
+    {
+      "id" : "template-Cow 1: Did you hear about the outbreak of mad cow disease?",
+      "type" : "template",
+      "template" : "Cow 1: Did you hear about the outbreak of mad cow disease?"
+    },
+    {
+      "id" : "template-Cow 2: ",
+      "type" : "template",
+      "template" : "Cow 2: "
+    },
+    {
+      "id" : "template-Cow 2: Good thing I'm a helicopter!",
+      "type" : "template",
+      "template" : "Cow 2: Good thing I'm a helicopter!"
+    },
+    {
+      "id" : "template-Did that help you?",
+      "type" : "template",
+      "template" : "Did that help you?",
+      "quickreplies" : [
+        "Yes, that helped me!",
+        "No, that didn't help me!"
+      ]
+    },
+    {
+      "id" : "template-Good, I don't care anyway!",
+      "type" : "template",
+      "template" : "Good, I don't care anyway!"
+    },
+    {
+      "id" : "template-Got it! Good for keeping Dracula in his coffin.",
+      "type" : "template",
+      "template" : "Got it! Good for keeping Dracula in his coffin."
+    },
+    {
+      "id" : "template-HA",
+      "type" : "template",
+      "template" : "HA"
+    },
+    {
+      "id" : "template-HAHA",
+      "type" : "template",
+      "template" : "HAHA"
+    },
+    {
+      "id" : "template-Hello there!",
+      "type" : "template",
+      "template" : "Hello there!"
+    },
+    {
+      "id" : "template-How are you today?",
+      "type" : "template",
+      "template" : "How are you today?",
+      "quickreplies" : [
+        "Good",
+        "Bad"
+      ]
+    },
+    {
+      "id" : "template-How long is a chinese name.",
+      "type" : "template",
+      "template" : "How long is a chinese name."
+    },
+    {
+      "id" : "template-I don't have anymore fun facts.",
+      "type" : "template",
+      "template" : "I don't have anymore fun facts."
+    },
+    {
+      "id" : "template-Of course, what's on your mind?",
+      "type" : "template",
+      "template" : "Of course, what's on your mind?"
+    },
+    {
+      "id" : "template-Oh, no. Do you want to talk about it?",
+      "type" : "template",
+      "template" : "Oh, no. Do you want to talk about it?",
+      "quickreplies" : [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id" : "template-Ok, here's a number you can call for guidance since I'm just a bot: +4604718943720948790823147",
+      "type" : "template",
+      "template" : "Ok, here's a number you can call for guidance since I'm just a bot: +4604718943720948790823147"
+    },
+    {
+      "id" : "template-Ok, here's a number you can call for guidance since I'm just a bot: 04718943720948790823147",
+      "type" : "template",
+      "template" : "Ok, here's a number you can call for guidance since I'm just a bot: 04718943720948790823147"
+    },
+    {
+      "id" : "template-Ok, what kind of pizza?",
+      "type" : "template",
+      "template" : "Ok, what kind of pizza?",
+      "quickreplies" : [
+        "cheese",
+        "pepperoni",
+        "garlic",
+        "worms"
+      ]
+    },
+    {
+      "id" : "template-Otters hold hands when they sleep to not drift apart.",
+      "type" : "template",
+      "template" : "Otters hold hands when they sleep to not drift apart."
+    },
+    {
+      "id" : "template-Oysters can change gender depending on which is best for mating.",
+      "type" : "template",
+      "template" : "Oysters can change gender depending on which is best for mating."
+    },
+    {
+      "id" : "template-Poor animals... but sooo delicious!",
+      "type" : "template",
+      "template" : "Poor animals... but sooo delicious!"
+    },
+    {
+      "id" : "template-Sea otters hold hands when they sleep to keep from drifting apart.",
+      "type" : "template",
+      "template" : "Sea otters hold hands when they sleep to keep from drifting apart."
+    },
+    {
+      "id" : "template-See you later!",
+      "type" : "template",
+      "template" : "See you later!"
+    },
+    {
+      "id" : "template-Splendid!",
+      "type" : "template",
+      "template" : "Splendid!"
+    },
+    {
+      "id" : "template-Sure! ",
+      "type" : "template",
+      "template" : "Sure! "
+    },
+    {
+      "id" : "template-Sure! What kind of joke do you want to hear?",
+      "type" : "template",
+      "template" : "Sure! What kind of joke do you want to hear?",
+      "quickreplies" : [
+        "About a pirate!",
+        "About an animal!",
+        "About a name!"
+      ]
+    },
+    {
+      "id" : "template-Sure! Why does a cow wear a bell?",
+      "type" : "template",
+      "template" : "Sure! Why does a cow wear a bell?"
+    },
+    {
+      "id" : "template-Thank you for today!",
+      "type" : "template",
+      "template" : "Thank you for today!"
+    },
+    {
+      "id" : "template-That's good to hear, what can I help you with today.",
+      "type" : "template",
+      "template" : "That's good to hear, what can I help you with today."
+    },
+    {
+      "id" : "template-That's good to hear, what can I help you with today?",
+      "type" : "template",
+      "template" : "That's good to hear, what can I help you with today?"
+    },
+    {
+      "id" : "template-Turtles can breathe through their butts.",
+      "type" : "template",
+      "template" : "Turtles can breathe through their butts."
+    },
+    {
+      "id" : "template-Two cows are standing in a field.",
+      "type" : "template",
+      "template" : "Two cows are standing in a field."
+    },
+    {
+      "id" : "template-Want to hear another one?",
+      "type" : "template",
+      "template" : "Want to hear another one?",
+      "quickreplies" : [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id" : "template-Well, I'm sorry about that! But I don't care since I don't have any feelings...",
+      "type" : "template",
+      "template" : "Well, I'm sorry about that! But I don't care since I don't have any feelings..."
+    },
+    {
+      "id" : "template-Well... I don't care since I don't have any feelings!",
+      "type" : "template",
+      "template" : "Well... I don't care since I don't have any feelings!"
+    },
+    {
+      "id" : "template-What can I help you with?",
+      "type" : "template",
+      "template" : "What can I help you with?",
+      "quickreplies" : [
+        "Counseling",
+        "Order pizza"
+      ]
+    },
+    {
+      "id" : "template-What did ",
+      "type" : "template",
+      "template" : "What did "
+    },
+    {
+      "id" : "template-What did the pirate say on his 80th birthday?",
+      "type" : "template",
+      "template" : "What did the pirate say on his 80th birthday?"
+    },
+    {
+      "id" : "template-Yes!",
+      "type" : "template",
+      "template" : "Yes!"
+    },
+    {
+      "id" : "template-Yes, please choose something else.",
+      "type" : "template",
+      "template" : "Yes, please choose something else."
+    },
+    {
+      "id" : "template-yuck! Sorry we don't have that.",
+      "type" : "template",
+      "template" : "yuck! Sorry we don't have that."
     }
   ]
 }

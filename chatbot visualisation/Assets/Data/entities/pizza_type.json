@@ -1,0 +1,30 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait",
+      "trait",
+      "trait",
+      "trait"
+    ],
+    "name" : "pizza_type",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "pizza_type",
+    "values" : [
+      {
+        "value" : "cheese"
+      },
+      {
+        "value" : "garlic"
+      },
+      {
+        "value" : "pepperoni"
+      },
+      {
+        "value" : "worms"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

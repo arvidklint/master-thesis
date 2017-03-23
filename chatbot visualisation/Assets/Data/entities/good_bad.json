@@ -1,0 +1,22 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait",
+      "trait"
+    ],
+    "name" : "good_bad",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "good_bad",
+    "values" : [
+      {
+        "value" : "bad"
+      },
+      {
+        "value" : "good"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

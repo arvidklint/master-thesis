@@ -1,0 +1,22 @@
+{
+  "data" : {
+    "lookups" : [
+      "free-text",
+      "keywords"
+    ],
+    "name" : "have_someting_else",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "have_someting_else",
+    "values" : [
+      {
+        "value" : "Ok, well I guess I'll have someting else then...",
+        "expressions" : [
+          "Ok, well I guess I'll have someting else then..."
+        ]
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

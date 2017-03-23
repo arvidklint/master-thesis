@@ -1,11 +1,231 @@
 {
   "data" : [
     {
-      "text" : "hello",
+      "text" : "About a name!",
+      "entities" : [
+        {
+          "entity" : "hear_joke",
+          "value" : "\"name\""
+        }
+      ]
+    },
+    {
+      "text" : "About a pirate!",
+      "entities" : [
+        {
+          "entity" : "hear_joke",
+          "value" : "\"pirate\""
+        }
+      ]
+    },
+    {
+      "text" : "About an animal!",
+      "entities" : [
+        {
+          "entity" : "hear_joke",
+          "value" : "\"animal\""
+        }
+      ]
+    },
+    {
+      "text" : "Bad",
+      "entities" : [
+        {
+          "entity" : "good_bad",
+          "value" : "\"bad\""
+        }
+      ]
+    },
+    {
+      "text" : "Can I talk to you?",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"counseling\""
+        }
+      ]
+    },
+    {
+      "text" : "Can you help me?",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"\""
+        }
+      ]
+    },
+    {
+      "text" : "Can you tell me a joke?",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"joke\""
+        }
+      ]
+    },
+    {
+      "text" : "Counseling",
+      "entities" : [
+        {
+          "entity" : "help_type",
+          "value" : "\"counseling\""
+        }
+      ]
+    },
+    {
+      "text" : "Good",
+      "entities" : [
+        {
+          "entity" : "good_bad",
+          "value" : "\"good\""
+        }
+      ]
+    },
+    {
+      "text" : "Goodbye!",
+      "entities" : [
+        {
+          "entity" : "goodbye",
+          "value" : "\"Goodbye\"",
+          "start" : 0,
+          "end" : 7
+        }
+      ]
+    },
+    {
+      "text" : "Hi",
       "entities" : [
         {
           "entity" : "intent",
           "value" : "\"greeting\""
+        }
+      ]
+    },
+    {
+      "text" : "I don't feel well.",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"counseling\""
+        }
+      ]
+    },
+    {
+      "text" : "I have no idea...",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"noidea\""
+        }
+      ]
+    },
+    {
+      "text" : "I would like to order a pizza",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"pizza\""
+        }
+      ]
+    },
+    {
+      "text" : "No",
+      "entities" : [
+        {
+          "entity" : "hear_animal_fun_fact",
+          "value" : "\"no\""
+        }
+      ]
+    },
+    {
+      "text" : "No, that didn't help me!",
+      "entities" : [
+        {
+          "entity" : "yes_no",
+          "value" : "\"no\""
+        }
+      ]
+    },
+    {
+      "text" : "Ok, well I guess I'll have someting else then...",
+      "entities" : [
+        {
+          "entity" : "have_someting_else",
+          "value" : "\"Ok, well I guess I'll have someting else then...\"",
+          "start" : 0,
+          "end" : 48
+        }
+      ]
+    },
+    {
+      "text" : "Order pizza",
+      "entities" : [
+        {
+          "entity" : "help_type",
+          "value" : "\"order_pizza\""
+        }
+      ]
+    },
+    {
+      "text" : "Tell me a fun fact about animals.",
+      "entities" : [
+        {
+          "entity" : "intent",
+          "value" : "\"animal fact\""
+        }
+      ]
+    },
+    {
+      "text" : "Yes",
+      "entities" : [
+        {
+          "entity" : "hear_animal_fun_fact",
+          "value" : "\"yes\""
+        }
+      ]
+    },
+    {
+      "text" : "Yes, that helped me!",
+      "entities" : [
+        {
+          "entity" : "yes_no",
+          "value" : "\"yes\""
+        }
+      ]
+    },
+    {
+      "text" : "cheese",
+      "entities" : [
+        {
+          "entity" : "pizza_type",
+          "value" : "\"cheese\""
+        }
+      ]
+    },
+    {
+      "text" : "garlic",
+      "entities" : [
+        {
+          "entity" : "pizza_type",
+          "value" : "\"garlic\""
+        }
+      ]
+    },
+    {
+      "text" : "pepperoni",
+      "entities" : [
+        {
+          "entity" : "pizza_type",
+          "value" : "\"pepperoni\""
+        }
+      ]
+    },
+    {
+      "text" : "worms",
+      "entities" : [
+        {
+          "entity" : "pizza_type",
+          "value" : "\"worms\""
         }
       ]
     }

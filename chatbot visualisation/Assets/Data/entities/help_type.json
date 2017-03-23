@@ -1,0 +1,22 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait",
+      "trait"
+    ],
+    "name" : "help_type",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "help_type",
+    "values" : [
+      {
+        "value" : "counseling"
+      },
+      {
+        "value" : "order_pizza"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

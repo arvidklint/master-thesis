@@ -1,0 +1,22 @@
+{
+  "data" : {
+    "lookups" : [
+      "free-text",
+      "keywords"
+    ],
+    "name" : "goodbye",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "goodbye",
+    "values" : [
+      {
+        "value" : "Goodbye",
+        "expressions" : [
+          "Goodbye"
+        ]
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

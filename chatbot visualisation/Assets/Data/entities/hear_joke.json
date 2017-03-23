@@ -1,0 +1,26 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait",
+      "trait",
+      "trait"
+    ],
+    "name" : "hear_joke",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "hear_joke",
+    "values" : [
+      {
+        "value" : "animal"
+      },
+      {
+        "value" : "name"
+      },
+      {
+        "value" : "pirate"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

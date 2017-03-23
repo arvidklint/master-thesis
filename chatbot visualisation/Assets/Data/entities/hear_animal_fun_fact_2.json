@@ -1,0 +1,22 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait",
+      "trait"
+    ],
+    "name" : "hear_animal_fun_fact_2",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "hear_animal_fun_fact_2",
+    "values" : [
+      {
+        "value" : "no"
+      },
+      {
+        "value" : "yes"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

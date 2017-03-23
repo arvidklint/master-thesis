@@ -1,10 +1,10 @@
 {
   "data" : [
     {
-      "name" : "",
+      "name" : "Hello",
       "turns" : [
         {
-          "user" : "hello",
+          "user" : "Hi",
           "entities" : [
             {
               "entity" : "intent",
@@ -13,7 +13,568 @@
           ],
           "operations" : [
             {
-              "action" : "template-Hello friend"
+              "action" : "template-Hello there!"
+            },
+            {
+              "action" : "template-How are you today?"
+            }
+          ]
+        },
+        {
+          "branches" : [
+            { "turns" : [
+              {
+                "user" : "Good",
+                "entities" : [
+                  {
+                    "entity" : "good_bad",
+                    "value" : "\"good\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-That's good to hear, what can I help you with today?"
+                  }
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "Bad",
+                "entities" : [
+                  {
+                    "entity" : "good_bad",
+                    "value" : "\"bad\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Oh, no. Do you want to talk about it?"
+                  }
+                ]
+              },
+              {
+                "branches" : [
+                  { "turns": [
+                    {
+                      "user" : "Yes",
+                      "entities" : [
+                        {
+                          "entity" : "talk_yes_no",
+                          "value" : "\"yes\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "jump" : "counseling"
+                        }
+                      ]
+                    }
+                  ]},
+                  { "turns": [
+                    {
+                      "user" : "No",
+                      "entities" : [
+                        {
+                          "entity" : "talk_yes_no",
+                          "value" : "\"no\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "action" : "template-Good, I don't care anyway!"
+                        }
+                      ]
+                    }
+                  ]}
+                ]
+              }
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "Counseling",
+      "turns" : [
+        {
+          "user" : "Can I talk to you?",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"counseling\""
+            }
+          ],
+          "operations" : [
+            {
+              "bookmark" : "counseling"
+            },
+            {
+              "action" : "template-Of course, what's on your mind?"
+            }
+          ]
+        },
+        {
+          "user" : "I don't feel well.",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"counseling\""
+            }
+          ],
+          "operations" : [
+            {
+              "action" : "template-Ok, here's a number you can call for guidance since I'm just a bot: +4604718943720948790823147"
+            },
+            {
+              "action" : "template-Did that help you?"
+            }
+          ]
+        },
+        {
+          "branches" : [
+            { "turns" : [
+              {
+                "user" : "Yes, that helped me!",
+                "entities" : [
+                  {
+                    "entity" : "yes_no",
+                    "value" : "\"yes\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Splendid!"
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "No, that didn't help me!",
+                "entities" : [
+                  {
+                    "entity" : "yes_no",
+                    "value" : "\"no\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Well... I don't care since I don't have any feelings!"
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "Can I help you?",
+      "turns" : [
+        {
+          "user" : "Can you help me?",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"\""
+            }
+          ],
+          "operations" : [
+            {
+              "action" : "template-Yes!"
+            },
+            {
+              "bookmark" : "help"
+            },
+            {
+              "action" : "template-What can I help you with?"
+            }
+          ]
+        },
+        {
+          "branches" : [
+            { "turns": [
+              {
+                "user" : "Counseling",
+                "entities" : [
+                  {
+                    "entity" : "help_type",
+                    "value" : "\"counseling\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "jump" : "counseling"
+                  }
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "Order pizza",
+                "entities" : [
+                  {
+                    "entity" : "help_type",
+                    "value" : "\"order_pizza\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "jump" : "pizza"
+                  }
+                ]
+              }
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "Tell me a joke",
+      "turns" : [
+        {
+          "user" : "Can you tell me a joke?",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"joke\""
+            }
+          ],
+          "operations" : [
+            {
+              "action" : "template-Sure! What kind of joke do you want to hear?"
+            }
+          ]
+        },
+        {
+          "branches" : [
+            { "turns": [
+              {
+                "user" : "About a pirate!",
+                "entities" : [
+                  {
+                    "entity" : "hear_joke",
+                    "value" : "\"pirate\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-What did the pirate say on his 80th birthday?"
+                  },
+                  {
+                    "action" : "template-Ay matey!"
+                  },
+                  {
+                    "action" : "template-HAHA"
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "About an animal!",
+                "entities" : [
+                  {
+                    "entity" : "hear_joke",
+                    "value" : "\"animal\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Sure! Why does a cow wear a bell?"
+                  },
+                  {
+                    "action" : "template-...Because their horns doesn't work!"
+                  },
+                  {
+                    "action" : "template-HAHA"
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "About a name!",
+                "entities" : [
+                  {
+                    "entity" : "hear_joke",
+                    "value" : "\"name\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-How long is a chinese name."
+                  },
+                  {
+                    "action" : "template-...Get it? \"How Long\""
+                  },
+                  {
+                    "action" : "template-HAHA"
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "Order pizza",
+      "turns" : [
+        {
+          "user" : "I would like to order a pizza",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"pizza\""
+            }
+          ],
+          "operations" : [
+            {
+              "bookmark" : "pizza"
+            },
+            {
+              "action" : "template-Ok, what kind of pizza?"
+            }
+          ]
+        },
+        {
+          "branches" : [
+            { "turns": [
+              {
+                "user" : "cheese",
+                "entities" : [
+                  {
+                    "entity" : "pizza_type",
+                    "value" : "\"cheese\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Classic!"
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "pepperoni",
+                "entities" : [
+                  {
+                    "entity" : "pizza_type",
+                    "value" : "\"pepperoni\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Poor animals... but sooo delicious!"
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "garlic",
+                "entities" : [
+                  {
+                    "entity" : "pizza_type",
+                    "value" : "\"garlic\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Got it! Good for keeping Dracula in his coffin."
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "worms",
+                "entities" : [
+                  {
+                    "entity" : "pizza_type",
+                    "value" : "\"worms\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-yuck! Sorry we don't have that."
+                  }
+                ]
+              },
+              {
+                "user" : "Ok, well I guess I'll have someting else then...",
+                "entities" : [
+                  {
+                    "entity" : "have_someting_else",
+                    "value" : "\"Ok, well I guess I'll have someting else then...\"",
+                    "start" : 0,
+                    "end" : 48
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Yes, please choose something else."
+                  },
+                  {
+                    "jump" : "pizza"
+                  }
+                ]
+              }
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "Animal fun facts",
+      "turns" : [
+        {
+          "user" : "Tell me a fun fact about animals.",
+          "entities" : [
+            {
+              "entity" : "intent",
+              "value" : "\"animal fact\""
+            }
+          ],
+          "operations" : [
+            {
+              "action" : "template-Sea otters hold hands when they sleep to keep from drifting apart."
+            },
+            {
+              "action" : "template-Want to hear another one?"
+            }
+          ]
+        },
+        {
+          "branches" : [
+            { "turns": [
+              {
+                "user" : "Yes",
+                "entities" : [
+                  {
+                    "entity" : "hear_animal_fun_fact",
+                    "value" : "\"yes\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-Turtles can breathe through their butts."
+                  },
+                  {
+                    "action" : "template-Want to hear another one?"
+                  }
+                ]
+              },
+              {
+                "branches" : [
+                  { "turns": [
+                    {
+                      "user" : "Yes",
+                      "entities" : [
+                        {
+                          "entity" : "hear_animal_fun_fact",
+                          "value" : "\"yes\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "action" : "template-Oysters can change gender depending on which is best for mating."
+                        },
+                        {
+                          "action" : "template-I don't have anymore fun facts."
+                        },
+                        {
+                          "jump" : "help"
+                        }
+                      ]
+                    }
+                  ]},
+                  { "turns": [
+                    {
+                      "user" : "No",
+                      "entities" : [
+                        {
+                          "entity" : "hear_animal_fun_fact",
+                          "value" : "\"no\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "action" : "template-As you wish!"
+                        },
+                        {
+                          "jump" : "help"
+                        }
+                      ]
+                    }
+                  ]}
+                ]
+              }
+            ]},
+            { "turns": [
+              {
+                "user" : "No",
+                "entities" : [ ],
+                "operations" : [
+                  {
+                    "action" : "template-Alrighty!"
+                  },
+                  {
+                    "jump" : "help"
+                  }
+                ]
+              }
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "Goodbye",
+      "turns" : [
+        {
+          "user" : "Goodbye!",
+          "entities" : [
+            {
+              "entity" : "goodbye",
+              "value" : "\"Goodbye\"",
+              "start" : 0,
+              "end" : 7
+            }
+          ],
+          "operations" : [
+            {
+              "action" : "template-Thank you for today!"
+            },
+            {
+              "action" : "template-See you later!"
             }
           ]
         }

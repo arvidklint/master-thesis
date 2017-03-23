@@ -9,7 +9,28 @@
     "id" : "intent",
     "values" : [
       {
+        "value" : ""
+      },
+      {
+        "value" : "animal fact"
+      },
+      {
+        "value" : "counseling"
+      },
+      {
+        "value" : "goodbye"
+      },
+      {
         "value" : "greeting"
+      },
+      {
+        "value" : "joke"
+      },
+      {
+        "value" : "noidea"
+      },
+      {
+        "value" : "pizza"
       }
     ],
     "doc" : "User-defined entity",

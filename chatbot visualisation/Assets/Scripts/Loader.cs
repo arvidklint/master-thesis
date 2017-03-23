@@ -15,7 +15,7 @@ public class Loader {
 			sr.Close();
 		} 
 		catch (Exception e) {
-			Debug.LogError ("Could not read file");
+			Debug.LogError ("Could not read file: " + fileName);
 		}
 			
 		return text;

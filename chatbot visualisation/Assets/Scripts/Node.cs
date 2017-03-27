@@ -7,6 +7,8 @@ public class Node : MonoBehaviour {
 	public Turn turn;
 
 	public List<Node> connectedNodes;
+	public Node jumpNode;
 
-	public Link link;
+	public List<Link> links;
+
 }

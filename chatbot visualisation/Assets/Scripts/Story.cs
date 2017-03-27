@@ -6,6 +6,7 @@ using UnityEngine;
 public class Operation {
 	public string action;
 	public string jump;
+	public string bookmark;
 }
 
 [System.Serializable]

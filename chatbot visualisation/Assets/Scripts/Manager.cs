@@ -15,6 +15,9 @@ public class Manager : MonoBehaviour {
 	public float radius = 5f;
 	public float nodeDistance = 3f;
 
+	public Color linkColor;
+	public Color jumpLinkColor;
+
 	// Use this for initialization
 	void Start () {
 		if (dm.stories.Count == 0) {
@@ -23,12 +26,16 @@ public class Manager : MonoBehaviour {
 		}
 
 		Vector3 rootPosition = Vector3.zero;
-		// Create the stories (nodes)
+		// Create the nodes and links (stories)
 		foreach (Story story in dm.stories) {
-			// Create root node for the story
+			// Create root node
 			Node node = CreateNodes (story.turns);
 			rootNodes.Add (node);
+			node.transform.SetParent (this.transform);
 		}
+
+		// Create the links between stories
+		 CreateLinkBetweenStories(rootNodes);
 	}
 
 	void Update() {
@@ -43,12 +50,33 @@ public class Manager : MonoBehaviour {
 		}
 	}
 
+	Node FindBookmark(List<Node> nodes, string bookmark) {
+		Node foundNode = null;
+		foreach (Node node in nodes) {
+			foreach (Operation operation in node.turn.operations) {
+				if (operation.bookmark == bookmark) {
+					return node;
+				}
+			}
+			Node temp = FindBookmark (node.connectedNodes, bookmark);
+			if (temp != null) {
+				foundNode = temp;
+			}
+		}
+		return foundNode;
+	}
+
 	void PlaceNodes(Node root) {
 		for (int i = 0; i < root.connectedNodes.Count; i++) {
 			Vector3 position = Vector3.zero;
 			Vector3 middle = Vector3.zero;
-			position.x += nodeDistance * Mathf.Sin (((i * Mathf.PI / 2f) / root.connectedNodes.Count) - Mathf.PI / 8f);
-			position.y += nodeDistance * Mathf.Cos (((i * Mathf.PI / 2f) / root.connectedNodes.Count) - Mathf.PI / 8f);
+
+			if (root.connectedNodes.Count > 1) {
+				position.x -= nodeDistance * Mathf.Sin ((i * Mathf.PI / 3f / (root.connectedNodes.Count - 1)) - Mathf.PI / 6f);
+			}
+
+			position.y = -nodeDistance;
+
 			middle.y = position.y + root.transform.position.y;
 			root.connectedNodes [i].transform.localPosition = position;
 			root.connectedNodes [i].transform.LookAt (middle);
@@ -57,10 +85,29 @@ public class Manager : MonoBehaviour {
 		}
 	}
 
-	Link CreateLink(Node start, Node end) {
+	void CreateLinkBetweenStories(List<Node> nodes) {
+		foreach (Node node in nodes) {
+			foreach (Operation operation in node.turn.operations) {
+				if (operation.jump != null) {
+					Node other = FindBookmark (rootNodes, operation.jump);
+					if (other != null) {
+						Link link = CreateLink(node, other, jumpLinkColor);
+						node.jumpNode = other;
+						node.links.Add(link);
+					}
+
+				}
+			}
+			if (node.connectedNodes.Count > 0) {
+				CreateLinkBetweenStories (node.connectedNodes);
+			}
+		}
+	}
+
+	Link CreateLink(Node start, Node end, Color color) {
 		GameObject go = (GameObject)Instantiate (linkPrefab, Vector3.zero, Quaternion.identity);
 		Link link = go.GetComponent<Link> ();
-		link.Set (start, end);
+		link.Set (start, end, color);
 		return link;
 	}
 
@@ -82,7 +129,7 @@ public class Manager : MonoBehaviour {
 				currentNode.connectedNodes.AddRange (CreateBranchNodes (turn.branches));
 				foreach (Node n in currentNode.connectedNodes) {
 					n.transform.SetParent (currentNode.transform);
-					currentNode.link = CreateLink (currentNode, n);
+					currentNode.links.Add (CreateLink (currentNode, n, linkColor));
 				}
 			} else {
 				currentNode = CreateNode (turn);
@@ -91,7 +138,7 @@ public class Manager : MonoBehaviour {
 				} else {
 					prevNode.connectedNodes.Add (currentNode);
 					currentNode.transform.SetParent (prevNode.transform);
-					prevNode.link = CreateLink (prevNode, currentNode);
+					prevNode.links.Add (CreateLink (prevNode, currentNode, linkColor));
 				}
 			}
 

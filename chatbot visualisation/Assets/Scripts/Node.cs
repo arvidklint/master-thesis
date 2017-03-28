@@ -99,45 +99,53 @@ public class Node : MonoBehaviour {
 	void Update() {
 		originalPosition = transform.localPosition;
 		if (selectedFirst) {
-			cube.DOScale (new Vector3 (4f, 3f, 1.5f), transitionTime);
-			DOTween.To (()=> textMeshUserTransform.localPosition, x=> textMeshUserTransform.localPosition = x, new Vector3 (0f, 1f, -0.76f), transitionTime);
-			if (textMeshOperation1Transform != null) {
-				DOTween.To (()=> textMeshOperation1Transform.localPosition, x=> textMeshOperation1Transform.localPosition = x, new Vector3 (0f, 0f, -0.76f), transitionTime);
-				DOTween.To (()=> textMeshOperation1Transform.localScale, x=> textMeshOperation1Transform.localScale = x, new Vector3 (0.05f, 0.05f, 0.05f), transitionTime);
-			}
-
-			if (textMeshOperation2Transform != null) {
-				DOTween.To (()=> textMeshOperation2Transform.localPosition, x=> textMeshOperation2Transform.localPosition = x, new Vector3 (0f, -0.5f, -0.76f), transitionTime);
-				DOTween.To (()=> textMeshOperation2Transform.localScale, x=> textMeshOperation2Transform.localScale = x, new Vector3 (0.05f, 0.05f, 0.05f), transitionTime);
-			}
-			DOTween.To (()=> textMeshAnswerTransform.localPosition, x=> textMeshAnswerTransform.localPosition = x, new Vector3 (0f, 0.3f, -0.76f), transitionTime);
-			DOTween.To (()=> textMeshAnswerTransform.localScale, x=> textMeshAnswerTransform.localScale = x, new Vector3 (0.05f, 0.05f, 0.05f), transitionTime);
-			SetText (textMeshUser, turn.user, 2 * userTextMax);
+            Big();
 
             SelectColor();
 
 			selectedFirst = false;
 		}
 		if(deselect) {
-			cube.DOScale (new Vector3 (2f, 1f, 1f), transitionTime);
-			DOTween.To (() => textMeshUserTransform.localPosition, x => textMeshUserTransform.localPosition = x, new Vector3 (0f, 0f, -0.51f), transitionTime);
-			if (textMeshOperation1Transform != null) {
-				DOTween.To (()=> textMeshOperation1Transform.localPosition, x=> textMeshOperation1Transform.localPosition = x, new Vector3 (0f, 0f, -0.51f), transitionTime);
-				DOTween.To (()=> textMeshOperation1Transform.localScale, x=> textMeshOperation1Transform.localScale = x, new Vector3 (0f, 0f, 0f), transitionTime);
-			}
-			if (textMeshOperation2Transform != null) {
-				DOTween.To (()=> textMeshOperation2Transform.localPosition, x=> textMeshOperation2Transform.localPosition = x, new Vector3 (0f, -0.5f, -0.51f), transitionTime);
-				DOTween.To (()=> textMeshOperation2Transform.localScale, x=> textMeshOperation2Transform.localScale = x, new Vector3 (0f, 0f, 0f), transitionTime);
-			}
-			DOTween.To (()=> textMeshAnswerTransform.localPosition, x=> textMeshAnswerTransform.localPosition = x, new Vector3 (0f, 0.3f, -0.51f), transitionTime);
-			DOTween.To (()=> textMeshAnswerTransform.localScale, x=> textMeshAnswerTransform.localScale = x, new Vector3 (0f, 0f, 0f), transitionTime);
-			SetText (textMeshUser, turn.user, userTextMax);
+            Small();
 
             DeselectColor();
 
             deselect = false;
 		}
 	}
+
+    void Big() {
+        cube.DOScale(new Vector3(4f, 3f, 1.5f), transitionTime);
+        DOTween.To(() => textMeshUserTransform.localPosition, x => textMeshUserTransform.localPosition = x, new Vector3(0f, 1f, -0.76f), transitionTime);
+        if (textMeshOperation1Transform != null) {
+            DOTween.To(() => textMeshOperation1Transform.localPosition, x => textMeshOperation1Transform.localPosition = x, new Vector3(0f, 0f, -0.76f), transitionTime);
+            DOTween.To(() => textMeshOperation1Transform.localScale, x => textMeshOperation1Transform.localScale = x, new Vector3(0.05f, 0.05f, 0.05f), transitionTime);
+        }
+
+        if (textMeshOperation2Transform != null) {
+            DOTween.To(() => textMeshOperation2Transform.localPosition, x => textMeshOperation2Transform.localPosition = x, new Vector3(0f, -0.5f, -0.76f), transitionTime);
+            DOTween.To(() => textMeshOperation2Transform.localScale, x => textMeshOperation2Transform.localScale = x, new Vector3(0.05f, 0.05f, 0.05f), transitionTime);
+        }
+        DOTween.To(() => textMeshAnswerTransform.localPosition, x => textMeshAnswerTransform.localPosition = x, new Vector3(0f, 0.3f, -0.76f), transitionTime);
+        DOTween.To(() => textMeshAnswerTransform.localScale, x => textMeshAnswerTransform.localScale = x, new Vector3(0.05f, 0.05f, 0.05f), transitionTime);
+        SetText(textMeshUser, turn.user, 2 * userTextMax);
+    }
+
+    void Small() {
+        cube.DOScale(new Vector3(2f, 1f, 1f), transitionTime);
+        DOTween.To(() => textMeshUserTransform.localPosition, x => textMeshUserTransform.localPosition = x, new Vector3(0f, 0f, -0.51f), transitionTime);
+        if (textMeshOperation1Transform != null) {
+            DOTween.To(() => textMeshOperation1Transform.localPosition, x => textMeshOperation1Transform.localPosition = x, new Vector3(0f, 0f, -0.51f), transitionTime);
+            DOTween.To(() => textMeshOperation1Transform.localScale, x => textMeshOperation1Transform.localScale = x, new Vector3(0f, 0f, 0f), transitionTime);
+        }
+        if (textMeshOperation2Transform != null) {
+            DOTween.To(() => textMeshOperation2Transform.localPosition, x => textMeshOperation2Transform.localPosition = x, new Vector3(0f, -0.5f, -0.51f), transitionTime);
+            DOTween.To(() => textMeshOperation2Transform.localScale, x => textMeshOperation2Transform.localScale = x, new Vector3(0f, 0f, 0f), transitionTime);
+        }
+        DOTween.To(() => textMeshAnswerTransform.localPosition, x => textMeshAnswerTransform.localPosition = x, new Vector3(0f, 0.3f, -0.51f), transitionTime);
+        DOTween.To(() => textMeshAnswerTransform.localScale, x => textMeshAnswerTransform.localScale = x, new Vector3(0f, 0f, 0f), transitionTime);
+        SetText(textMeshUser, turn.user, userTextMax);
+    }
 
     void SelectColor() {
         // Color

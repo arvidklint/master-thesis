@@ -9,20 +9,37 @@ public class Link : MonoBehaviour {
 
 	LineRenderer lineRenderer;
 
+    private Color color;
+    public Color selectColor;
+
 	void Awake() {
 		lineRenderer = GetComponent<LineRenderer> ();
 	}
 
 	public void Set(Node start, Node end, Color color) {
+        this.color = color;
+
 		startNode = start;
 		endNode = end;
 
 		//lineRenderer = gameObject.AddComponent<LineRenderer> ();
 
 //		lineRenderer.material = new Material (Shader.Find("Standard"));
-		lineRenderer.SetColors(color, color);
-		lineRenderer.SetWidth(0.1f, 0.1f);
+		lineRenderer.startColor = color;
+        lineRenderer.endColor = color;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
 	}
+
+    public void SelectColor() {
+        lineRenderer.startColor = selectColor;
+        lineRenderer.endColor = selectColor;
+    }
+
+    public void DeselectColor() {
+        lineRenderer.startColor = color;
+        lineRenderer.endColor = color;
+    }
 
 	void Update() {
 		if (!startNode || !endNode)

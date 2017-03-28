@@ -17,6 +17,11 @@ public class Torus : MonoBehaviour {
     void Start () {
         
     }
+
+    void Update() {
+        transform.localPosition = new Vector3(0f, manager.height + 3f, 0f);
+        transform.localScale = new Vector3(manager.radius, manager.radius, manager.radius);
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {

@@ -21,6 +21,8 @@ public class Manager : MonoBehaviour {
     public float height = 10f;
     public float angle = 0f;
 
+    public bool deselectAll = false;
+
 	// Use this for initialization
 	void Start () {
 		if (dm.stories.Count == 0) {
@@ -51,7 +53,18 @@ public class Manager : MonoBehaviour {
 			rootNodes [i].transform.LookAt (new Vector3(0f, height, 0f));
 			PlaceNodes (rootNodes [i]);
 		}
+
+        if(deselectAll) {
+            DeselectAll();
+            deselectAll = false;
+        }
 	}
+
+    void DeselectAll() {
+        foreach(Node node in rootNodes) {
+            node.DeselectColor();
+        }
+    }
 
 	Node FindBookmark(List<Node> nodes, string bookmark) {
 		Node foundNode = null;

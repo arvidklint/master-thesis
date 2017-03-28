@@ -156,7 +156,7 @@ public class Node : MonoBehaviour {
         }
     }
 
-    void DeselectColor() {
+    public void DeselectColor() {
         // Color
         cubeRenderer.materials[0].DOColor(color, transitionTime);
 

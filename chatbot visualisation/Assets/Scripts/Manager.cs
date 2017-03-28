@@ -71,15 +71,19 @@ public class Manager : MonoBehaviour {
 			Vector3 position = Vector3.zero;
 			Vector3 middle = Vector3.zero;
 
-			if (root.connectedNodes.Count > 1) {
-				position.x -= nodeDistance * Mathf.Sin ((i * Mathf.PI / 3f / (root.connectedNodes.Count - 1)) - Mathf.PI / 6f);
-			}
+//			if (root.connectedNodes.Count > 1) {
+//				position.x -= nodeDistance * Mathf.Sin ((i * Mathf.PI / 3f / (root.connectedNodes.Count - 1)) - Mathf.PI / 6f);
+//			}
 
 			position.y = -nodeDistance;
 
+			float angle = i * 2.5f * Mathf.PI * 2f - (root.connectedNodes.Count - 1) * Mathf.PI * 3f;
+
+
 			middle.y = position.y + root.transform.position.y;
-			root.connectedNodes [i].transform.localPosition = position;
-			root.connectedNodes [i].transform.LookAt (middle);
+			root.connectedNodes[i].transform.localPosition = position;
+			root.connectedNodes[i].transform.LookAt (middle);
+			root.connectedNodes[i].transform.RotateAround(middle, Vector3.up, angle);
 
 			PlaceNodes (root.connectedNodes[i]);
 		}

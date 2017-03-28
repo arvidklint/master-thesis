@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 3f30b8ad0fdc444a3b01279b21ccac0b
+timeCreated: 1490619067
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Source Sans Pro
+  fontNames:
+  - Source Sans Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 23ecaaebde9ea4c15987b87eaed6ba53, type: 3}
+  - {fileID: 12800000, guid: 2d053eac20e704caaae7b60c88b44bfb, type: 3}
+  - {fileID: 12800000, guid: 343491ae3d26d4d1aa2952ed5fb4f7ce, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

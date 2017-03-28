@@ -134,4 +134,15 @@ public class Node : MonoBehaviour {
 			tm.text = text;
 		}
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Enter");
+        Selected = true;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        Selected = false;
+    }
 }

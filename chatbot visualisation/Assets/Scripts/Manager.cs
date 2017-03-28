@@ -18,6 +18,9 @@ public class Manager : MonoBehaviour {
 	public Color linkColor;
 	public Color jumpLinkColor;
 
+    public float height = 10f;
+    public float angle = 0f;
+
 	// Use this for initialization
 	void Start () {
 		if (dm.stories.Count == 0) {
@@ -42,10 +45,10 @@ public class Manager : MonoBehaviour {
 		float x = 0f;
 		float z = 0f;
 		for (int i = 0; i < rootNodes.Count; i++) {
-			x = radius * Mathf.Cos ((i * Mathf.PI * 2f) / rootNodes.Count);
-			z = radius * Mathf.Sin ((i * Mathf.PI * 2f) / rootNodes.Count);
-			rootNodes [i].transform.position = new Vector3 (x, 0f, z);
-			rootNodes [i].transform.LookAt (Vector3.zero);
+			x = radius * Mathf.Cos ((i * Mathf.PI * 2f + angle) / rootNodes.Count);
+			z = radius * Mathf.Sin ((i * Mathf.PI * 2f + angle) / rootNodes.Count);
+			rootNodes [i].transform.position = new Vector3 (x, height, z);
+			rootNodes [i].transform.LookAt (new Vector3(0f, height, 0f));
 			PlaceNodes (rootNodes [i]);
 		}
 	}
@@ -70,10 +73,6 @@ public class Manager : MonoBehaviour {
 		for (int i = 0; i < root.connectedNodes.Count; i++) {
 			Vector3 position = Vector3.zero;
 			Vector3 middle = Vector3.zero;
-
-//			if (root.connectedNodes.Count > 1) {
-//				position.x -= nodeDistance * Mathf.Sin ((i * Mathf.PI / 3f / (root.connectedNodes.Count - 1)) - Mathf.PI / 6f);
-//			}
 
 			position.y = -nodeDistance;
 

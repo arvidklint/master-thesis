@@ -9,6 +9,7 @@ public class SteamController : MonoBehaviour {
     private SteamVR_Controller.Device device;
 
     public bool triggerButton = false;
+    public bool triggerButtonPress = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,12 +19,8 @@ public class SteamController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         device = SteamVR_Controller.Input((int)trackedObject.index);
-        if(device.GetPress(triggerButtonId))
-        {
-            triggerButton = true;
-        } else
-        {
-            triggerButton = false;
-        }
+
+        triggerButton = device.GetPress(triggerButtonId) ? true : false;
+        triggerButtonPress = device.GetPressDown(triggerButtonId) ? true : false;
 	}
 }

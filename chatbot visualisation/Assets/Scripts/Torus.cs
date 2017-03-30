@@ -13,13 +13,15 @@ public class Torus : MonoBehaviour {
     private bool firstClick = false;
     private float diffAngle = 0f;
 
+    public float height = 3f;
+
     // Use this for initialization
     void Start () {
         
     }
 
     void Update() {
-        transform.localPosition = new Vector3(0f, manager.height + 3f, 0f);
+        transform.localPosition = new Vector3(0f, manager.height + height, 0f);
         transform.localScale = new Vector3(manager.radius, manager.radius, manager.radius);
     }
 	
@@ -27,6 +29,10 @@ public class Torus : MonoBehaviour {
 	void FixedUpdate () {
         if (onTriggerEnter) {
             foreach(SteamController sc in steamControllers) {
+                if(sc.triggerButtonPress)
+                {
+                    firstClick = true;
+                }
                 if(sc.triggerButton)
                 {
                     Vector3 diff = sc.transform.position - transform.position;
@@ -35,10 +41,13 @@ public class Torus : MonoBehaviour {
                     if (firstClick)
                     {
                         diffAngle = angle - manager.angle;
+                        //Debug.Log("manager.angle: " + manager.angle + " Angle: " + angle + " Diff: "+ diffAngle);
                     }
                     firstClick = false;
 
-                    manager.angle = angle + diffAngle;
+                    manager.angle = angle - diffAngle;
+
+                    manager.SetHeight(sc.transform.position.y - height);
                 }
             }
         }
@@ -47,12 +56,10 @@ public class Torus : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         onTriggerEnter = true;
         firstClick = true;
-        Debug.Log("Enter");
     }
 
     void OnTriggerExit(Collider other) {
         onTriggerEnter = false;
         firstClick = false;
-        Debug.Log("Exit");
     }
 }

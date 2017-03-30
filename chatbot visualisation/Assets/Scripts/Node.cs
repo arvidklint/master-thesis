@@ -35,6 +35,7 @@ public class Node : MonoBehaviour {
     public Color color;
     private Renderer cubeRenderer;
     public Color selecColor;
+    public bool colored = false;
 
 	private bool selected = false;
 	private bool selectedFirst = false;
@@ -86,7 +87,7 @@ public class Node : MonoBehaviour {
 		int counter = 0;
 		foreach (Operation operation in turn.operations) {
 			if (operation.action != null && textMeshOperations[counter] != null) {
-				SetText(textMeshOperations[counter], operation.action.Substring(9), operationTextMax);
+				SetText(textMeshOperations[counter], operation.action.Substring(9), 100 * operationTextMax);
 				counter++;
 			}
 
@@ -114,8 +115,41 @@ public class Node : MonoBehaviour {
 		}
 	}
 
+    public void SelectAll()
+    {
+        foreach(Node node in connectedNodes)
+        {
+            if(node.Selected)
+            {
+                node.Selected = true;
+            }
+            node.SelectAll();
+        }
+    }
+
     void Big() {
-        cube.DOScale(new Vector3(4f, 3f, 1.5f), transitionTime);
+        
+        // Get maximum length in operations
+        float maxOperation = 0f;
+        foreach(Operation operation in turn.operations)
+        {
+            if(operation.action != null)
+            {
+                if(operation.action.Length > maxOperation)
+                {
+                    maxOperation = operation.action.Length;
+                }
+            }
+        }
+        float xScaleOperation = maxOperation / 10f;
+        float xScaleUser = turn.user.Length / 5f;
+
+        // check which scale is bigger
+        float xScale = xScaleOperation > xScaleUser ? xScaleOperation : xScaleUser;
+
+        xScale = xScale < 3f ? 3f : xScale;
+
+        cube.DOScale(new Vector3(xScale, 3f, 1.5f), transitionTime);
         DOTween.To(() => textMeshUserTransform.localPosition, x => textMeshUserTransform.localPosition = x, new Vector3(0f, 1f, -0.76f), transitionTime);
         if (textMeshOperation1Transform != null) {
             DOTween.To(() => textMeshOperation1Transform.localPosition, x => textMeshOperation1Transform.localPosition = x, new Vector3(0f, 0f, -0.76f), transitionTime);
@@ -128,7 +162,7 @@ public class Node : MonoBehaviour {
         }
         DOTween.To(() => textMeshAnswerTransform.localPosition, x => textMeshAnswerTransform.localPosition = x, new Vector3(0f, 0.3f, -0.76f), transitionTime);
         DOTween.To(() => textMeshAnswerTransform.localScale, x => textMeshAnswerTransform.localScale = x, new Vector3(0.05f, 0.05f, 0.05f), transitionTime);
-        SetText(textMeshUser, turn.user, 2 * userTextMax);
+        SetText(textMeshUser, turn.user, 100 * userTextMax);
     }
 
     void Small() {
@@ -162,6 +196,8 @@ public class Node : MonoBehaviour {
         foreach(Link link in links) {
             link.SelectColor();
         }
+
+        colored = true;
     }
 
     public void DeselectColor() {
@@ -179,6 +215,8 @@ public class Node : MonoBehaviour {
         foreach (Link link in links) {
             link.DeselectColor();
         }
+
+        colored = false;
     }
 
     void JumpColor() {
@@ -190,12 +228,15 @@ public class Node : MonoBehaviour {
     }
 
 	private void SetText(TextMesh tm, string text, int max) {
-		if (text.Length > max) {
-			tm.text = text.Substring (0, max - 3) + "...";
-		} else {
-			tm.text = text;
-		}
-	}
+        if (text.Length > max)
+        {
+            tm.text = text.Substring(0, max - 3) + "...";
+        }
+        else
+        {
+            tm.text = text;
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {

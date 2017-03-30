@@ -179,9 +179,7 @@
                         }
                       ],
                       "operations" : [
-                        {
-                          "jump" : "joke"
-                        }
+                        
                       ]
                     }
                   ]}, { "turns":

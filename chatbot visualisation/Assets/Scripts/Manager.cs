@@ -60,6 +60,19 @@ public class Manager : MonoBehaviour {
         }
 	}
 
+    public void SelectAll()
+    {
+        foreach(Node node in rootNodes)
+        {
+            node.SelectAll();
+        }
+    }
+
+    public void SetHeight(float h)
+    {
+        height = h;
+    }
+
     void DeselectAll() {
         foreach(Node node in rootNodes) {
             node.DeselectColor();

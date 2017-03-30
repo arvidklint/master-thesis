@@ -417,19 +417,19 @@
             ]}, { "turns":
             [
               {
-                "user" : "About a name!",
+                "user" : "About a mountain!",
                 "entities" : [
                   {
                     "entity" : "hear_joke",
-                    "value" : "\"name\""
+                    "value" : "\"mountain\""
                   }
                 ],
                 "operations" : [
                   {
-                    "action" : "template-How long is a chinese name."
+                    "action" : "template-What would you call a very funny mountain?"
                   },
                   {
-                    "action" : "template-...Get it? \"How Long\""
+                    "action" : "template-Hillarious"
                   },
                   {
                     "action" : "template-HAHA"

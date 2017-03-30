@@ -1,0 +1,22 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait",
+      "trait"
+    ],
+    "name" : "horses_or_dinosaurs",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "horses_or_dinosaurs",
+    "values" : [
+      {
+        "value" : "dinosaurs"
+      },
+      {
+        "value" : "horses"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

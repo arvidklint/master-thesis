@@ -36,11 +36,6 @@
       "template" : "Cow 1: Did you hear about "
     },
     {
-      "id" : "template-Cow 1: Did you hear about the outbreak and ",
-      "type" : "template",
-      "template" : "Cow 1: Did you hear about the outbreak and "
-    },
-    {
       "id" : "template-Cow 1: Did you hear about the outbreak of mad cow disease?",
       "type" : "template",
       "template" : "Cow 1: Did you hear about the outbreak of mad cow disease?"
@@ -49,11 +44,6 @@
       "id" : "template-Cow 2: ",
       "type" : "template",
       "template" : "Cow 2: "
-    },
-    {
-      "id" : "template-Cow 2: Good thing I'm a helicopter!",
-      "type" : "template",
-      "template" : "Cow 2: Good thing I'm a helicopter!"
     },
     {
       "id" : "template-Did that help you?",
@@ -109,6 +99,16 @@
       "template" : "I don't have anymore fun facts."
     },
     {
+      "id" : "template-I have fallen and I can't giddyup!",
+      "type" : "template",
+      "template" : "I have fallen and I can't giddyup!"
+    },
+    {
+      "id" : "template-It's tail",
+      "type" : "template",
+      "template" : "It's tail"
+    },
+    {
       "id" : "template-Of course, what's on your mind?",
       "type" : "template",
       "template" : "Of course, what's on your mind?"
@@ -117,6 +117,25 @@
       "id" : "template-Oh, no. Do you want to talk about it?",
       "type" : "template",
       "template" : "Oh, no. Do you want to talk about it?",
+      "quickreplies" : [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "id" : "template-Ok, I don't care about your well being anyways.",
+      "type" : "template",
+      "template" : "Ok, I don't care about your well being anyways."
+    },
+    {
+      "id" : "template-Ok, The I'm afraid I can't help you.",
+      "type" : "template",
+      "template" : "Ok, The I'm afraid I can't help you."
+    },
+    {
+      "id" : "template-Ok, do you want me to tell you a joke?",
+      "type" : "template",
+      "template" : "Ok, do you want me to tell you a joke?",
       "quickreplies" : [
         "Yes",
         "No"
@@ -157,6 +176,11 @@
       "id" : "template-Poor animals... but sooo delicious!",
       "type" : "template",
       "template" : "Poor animals... but sooo delicious!"
+    },
+    {
+      "id" : "template-Rep-tiles! HAHAH",
+      "type" : "template",
+      "template" : "Rep-tiles! HAHAH"
     },
     {
       "id" : "template-Sea otters hold hands when they sleep to keep from drifting apart.",
@@ -238,6 +262,11 @@
       "template" : "Well... I don't care since I don't have any feelings!"
     },
     {
+      "id" : "template-What came after the dinosaur?",
+      "type" : "template",
+      "template" : "What came after the dinosaur?"
+    },
+    {
       "id" : "template-What can I help you with?",
       "type" : "template",
       "template" : "What can I help you with?",
@@ -252,9 +281,28 @@
       "template" : "What did "
     },
     {
+      "id" : "template-What did the horse say when it fell?",
+      "type" : "template",
+      "template" : "What did the horse say when it fell?"
+    },
+    {
       "id" : "template-What did the pirate say on his 80th birthday?",
       "type" : "template",
       "template" : "What did the pirate say on his 80th birthday?"
+    },
+    {
+      "id" : "template-What do dinosaurs use on the floors of their kitchens?",
+      "type" : "template",
+      "template" : "What do dinosaurs use on the floors of their kitchens?"
+    },
+    {
+      "id" : "template-What dog loves to take bubble baths?... A shampoodle",
+      "type" : "template",
+      "template" : "What dog loves to take bubble baths?... A shampoodle",
+      "quickreplies" : [
+        "Joke about horses",
+        "Joke about dinosaurs"
+      ]
     },
     {
       "id" : "template-Yes!",

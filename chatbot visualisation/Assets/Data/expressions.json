@@ -28,6 +28,15 @@
       ]
     },
     {
+      "text" : "Another joke about dinosaurs!",
+      "entities" : [
+        {
+          "entity" : "another_joke_about_dinosaurs",
+          "value" : "\"dinosaurs\""
+        }
+      ]
+    },
+    {
       "text" : "Bad",
       "entities" : [
         {
@@ -129,10 +138,28 @@
       ]
     },
     {
+      "text" : "Joke about dinosaurs",
+      "entities" : [
+        {
+          "entity" : "horses_or_dinosaurs",
+          "value" : "\"dinosaurs\""
+        }
+      ]
+    },
+    {
+      "text" : "Joke about horses",
+      "entities" : [
+        {
+          "entity" : "horses_or_dinosaurs",
+          "value" : "\"horses\""
+        }
+      ]
+    },
+    {
       "text" : "No",
       "entities" : [
         {
-          "entity" : "hear_animal_fun_fact",
+          "entity" : "tell_joke_yes_no",
           "value" : "\"no\""
         }
       ]
@@ -176,10 +203,19 @@
       ]
     },
     {
+      "text" : "Tell me another joke about animals",
+      "entities" : [
+        {
+          "entity" : "another_joke_animal",
+          "value" : "\"animal\""
+        }
+      ]
+    },
+    {
       "text" : "Yes",
       "entities" : [
         {
-          "entity" : "hear_animal_fun_fact",
+          "entity" : "tell_joke_yes_no",
           "value" : "\"yes\""
         }
       ]

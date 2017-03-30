@@ -1,0 +1,18 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait"
+    ],
+    "name" : "another_joke_animal",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "another_joke_animal",
+    "values" : [
+      {
+        "value" : "animal"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

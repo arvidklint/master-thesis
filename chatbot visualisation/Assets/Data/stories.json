@@ -21,8 +21,7 @@
           ]
         },
         {
-          "branches" : [
-            { "turns" : [
+          "branches" : [ { "turns": [
               {
                 "user" : "Good",
                 "entities" : [
@@ -37,8 +36,8 @@
                   }
                 ]
               }
-            ]},
-            { "turns": [
+            ]}, { "turns":
+            [
               {
                 "user" : "Bad",
                 "entities" : [
@@ -70,8 +69,8 @@
                         }
                       ]
                     }
-                  ]},
-                  { "turns": [
+                  ]}, { "turns":
+                  [
                     {
                       "user" : "No",
                       "entities" : [
@@ -83,6 +82,9 @@
                       "operations" : [
                         {
                           "action" : "template-Good, I don't care anyway!"
+                        },
+                        {
+                          "jump" : "help"
                         }
                       ]
                     }
@@ -95,7 +97,7 @@
       ]
     },
     {
-      "name" : "Counseling",
+      "name" : "",
       "turns" : [
         {
           "user" : "Can I talk to you?",
@@ -132,8 +134,7 @@
           ]
         },
         {
-          "branches" : [
-            { "turns" : [
+          "branches" : [ { "turns": [
               {
                 "user" : "Yes, that helped me!",
                 "entities" : [
@@ -163,11 +164,46 @@
                 ],
                 "operations" : [
                   {
-                    "action" : "template-Well... I don't care since I don't have any feelings!"
-                  },
-                  {
-                    "jump" : "help"
+                    "action" : "template-Ok, do you want me to tell you a joke?"
                   }
+                ]
+              },
+              {
+                "branches" : [ { "turns": [
+                    {
+                      "user" : "Yes",
+                      "entities" : [
+                        {
+                          "entity" : "tell_joke_yes_no",
+                          "value" : "\"yes\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "jump" : "joke"
+                        }
+                      ]
+                    }
+                  ]}, { "turns":
+                  [
+                    {
+                      "user" : "No",
+                      "entities" : [
+                        {
+                          "entity" : "tell_joke_yes_no",
+                          "value" : "\"no\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "action" : "template-Ok, The I'm afraid I can't help you."
+                        },
+                        {
+                          "jump" : "help"
+                        }
+                      ]
+                    }
+                  ]}
                 ]
               }
             ]}
@@ -199,8 +235,7 @@
           ]
         },
         {
-          "branches" : [
-            { "turns": [
+          "branches" : [ { "turns": [
               {
                 "user" : "Counseling",
                 "entities" : [
@@ -215,8 +250,8 @@
                   }
                 ]
               }
-            ]},
-            { "turns": [
+            ]}, { "turns":
+            [
               {
                 "user" : "Order pizza",
                 "entities" : [
@@ -249,13 +284,15 @@
           ],
           "operations" : [
             {
+              "bookmark" : "joke"
+            },
+            {
               "action" : "template-Sure! What kind of joke do you want to hear?"
             }
           ]
         },
         {
-          "branches" : [
-            { "turns": [
+          "branches" : [ { "turns": [
               {
                 "user" : "About a pirate!",
                 "entities" : [
@@ -279,8 +316,8 @@
                   }
                 ]
               }
-            ]},
-            { "turns": [
+            ]}, { "turns":
+            [
               {
                 "user" : "About an animal!",
                 "entities" : [
@@ -298,14 +335,89 @@
                   },
                   {
                     "action" : "template-HAHA"
-                  },
-                  {
-                    "jump" : "help"
                   }
                 ]
+              },
+              {
+                "user" : "Tell me another joke about animals",
+                "entities" : [
+                  {
+                    "entity" : "another_joke_animal",
+                    "value" : "\"animal\""
+                  }
+                ],
+                "operations" : [
+                  {
+                    "action" : "template-What dog loves to take bubble baths?... A shampoodle"
+                  }
+                ]
+              },
+              {
+                "branches" : [ { "turns": [
+                    {
+                      "user" : "Joke about horses",
+                      "entities" : [
+                        {
+                          "entity" : "horses_or_dinosaurs",
+                          "value" : "\"horses\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "action" : "template-What did the horse say when it fell?"
+                        },
+                        {
+                          "action" : "template-I have fallen and I can't giddyup!"
+                        },
+                        {
+                          "jump" : "help"
+                        }
+                      ]
+                    }
+                  ]}, { "turns":
+                  [
+                    {
+                      "user" : "Joke about dinosaurs",
+                      "entities" : [
+                        {
+                          "entity" : "horses_or_dinosaurs",
+                          "value" : "\"dinosaurs\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "action" : "template-What came after the dinosaur?"
+                        },
+                        {
+                          "action" : "template-It's tail"
+                        }
+                      ]
+                    },
+                    {
+                      "user" : "Another joke about dinosaurs!",
+                      "entities" : [
+                        {
+                          "entity" : "another_joke_about_dinosaurs",
+                          "value" : "\"dinosaurs\""
+                        }
+                      ],
+                      "operations" : [
+                        {
+                          "action" : "template-What do dinosaurs use on the floors of their kitchens?"
+                        },
+                        {
+                          "action" : "template-Rep-tiles! HAHAH"
+                        },
+                        {
+                          "jump" : "help"
+                        }
+                      ]
+                    }
+                  ]}
+                ]
               }
-            ]},
-            { "turns": [
+            ]}, { "turns":
+            [
               {
                 "user" : "About a name!",
                 "entities" : [
@@ -355,8 +467,7 @@
           ]
         },
         {
-          "branches" : [
-            { "turns": [
+          "branches" : [ { "turns": [
               {
                 "user" : "cheese",
                 "entities" : [
@@ -374,8 +485,8 @@
                   }
                 ]
               }
-            ]},
-            { "turns": [
+            ]}, { "turns":
+            [
               {
                 "user" : "pepperoni",
                 "entities" : [
@@ -393,8 +504,8 @@
                   }
                 ]
               }
-            ]},
-            { "turns": [
+            ]}, { "turns":
+            [
               {
                 "user" : "garlic",
                 "entities" : [
@@ -412,8 +523,8 @@
                   }
                 ]
               }
-            ]},
-            { "turns": [
+            ]}, { "turns":
+            [
               {
                 "user" : "worms",
                 "entities" : [
@@ -473,8 +584,7 @@
           ]
         },
         {
-          "branches" : [
-            { "turns": [
+          "branches" : [ { "turns": [
               {
                 "user" : "Yes",
                 "entities" : [
@@ -493,8 +603,7 @@
                 ]
               },
               {
-                "branches" : [
-                  { "turns": [
+                "branches" : [ { "turns": [
                     {
                       "user" : "Yes",
                       "entities" : [
@@ -515,8 +624,8 @@
                         }
                       ]
                     }
-                  ]},
-                  { "turns": [
+                  ]}, { "turns":
+                  [
                     {
                       "user" : "No",
                       "entities" : [
@@ -537,8 +646,8 @@
                   ]}
                 ]
               }
-            ]},
-            { "turns": [
+            ]}, { "turns":
+            [
               {
                 "user" : "No",
                 "entities" : [ ],

@@ -1,0 +1,22 @@
+{
+  "data" : {
+    "lookups" : [
+      "trait",
+      "trait"
+    ],
+    "name" : "tell_joke_yes_no",
+    "lang" : "en",
+    "exotic" : false,
+    "id" : "tell_joke_yes_no",
+    "values" : [
+      {
+        "value" : "no"
+      },
+      {
+        "value" : "yes"
+      }
+    ],
+    "doc" : "User-defined entity",
+    "builtin" : false
+  }
+}

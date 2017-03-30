@@ -19,7 +19,10 @@ public class Node : MonoBehaviour {
 	public TextMesh textMeshOperation2;
 	public Transform textMeshOperation2Transform;
 
-	public Transform textMeshAnswerTransform;
+    public TextMesh textMeshOperation3;
+    public Transform textMeshOperation3Transform;
+
+    public Transform textMeshAnswerTransform;
 
 	public List<TextMesh> textMeshOperations;
 
@@ -35,10 +38,11 @@ public class Node : MonoBehaviour {
     public Color color;
     private Renderer cubeRenderer;
     public Color selecColor;
+    public Color looseEndColor;
     public bool colored = false;
 
 	private bool selected = false;
-	private bool selectedFirst = false;
+	public bool selectedFirst = false;
 	private bool deselect = false;
 
 	private Vector3 originalPosition;
@@ -52,9 +56,15 @@ public class Node : MonoBehaviour {
 		set {
 			this.selected = value;
 			if (this.selected) {
-				this.selectedFirst = true;
+                Big();
+
+                SelectColor();
+                this.selectedFirst = true;
 			} else {
-				this.deselect = true;
+                Small();
+
+                DeselectColor();
+                this.deselect = true;
 			}
 		}
 	}
@@ -77,54 +87,74 @@ public class Node : MonoBehaviour {
 		textMeshOperations.Add (textMeshOperation1);
 
 		textMeshOperation2Transform = transform.GetChild (3);
-		textMeshOperation1 = textMeshOperation2Transform.gameObject.GetComponent<TextMesh> ();
+		textMeshOperation2 = textMeshOperation2Transform.gameObject.GetComponent<TextMesh> ();
 		textMeshOperations.Add (textMeshOperation2);
 
-		textMeshLocalPosition = textMeshUserTransform.localPosition;
+        textMeshOperation3Transform = transform.GetChild(4);
+        textMeshOperation3 = textMeshOperation3Transform.gameObject.GetComponent<TextMesh>();
+        textMeshOperations.Add(textMeshOperation3);
 
-		textMeshAnswerTransform = transform.GetChild (4);
+        textMeshLocalPosition = textMeshUserTransform.localPosition;
+
+		textMeshAnswerTransform = transform.GetChild (5);
 
 		int counter = 0;
+        Debug.Log(turn.operations.Count);
 		foreach (Operation operation in turn.operations) {
 			if (operation.action != null && textMeshOperations[counter] != null) {
+                Debug.Log(operation.action);
 				SetText(textMeshOperations[counter], operation.action.Substring(9), 100 * operationTextMax);
 				counter++;
 			}
 
-			if (counter >= textMeshOperations.Count) {
-				break;
-			}
+			//if (counter >= textMeshOperations.Count) {
+			//	break;
+			//}
 		}
 	}
 
 	void Update() {
 		originalPosition = transform.localPosition;
 		if (selectedFirst) {
-            Big();
-
-            SelectColor();
+            
 
 			selectedFirst = false;
 		}
 		if(deselect) {
-            Small();
-
-            DeselectColor();
+            
 
             deselect = false;
 		}
 	}
 
-    public void SelectAll()
+    public void SelectAllSelected()
     {
+        if(Selected)
+        {
+            Selected = true;
+            Debug.Log("Reselecting: " + turn.user);
+        }
         foreach(Node node in connectedNodes)
         {
-            if(node.Selected)
-            {
-                node.Selected = true;
-            }
-            node.SelectAll();
+            node.SelectAllSelected();
         }
+    }
+
+    public void SelectAllLooseEnds()
+    {
+        if(connectedNodes.Count == 0 && jumpNode == null)
+        {
+            LooseEndColor();
+        }
+        foreach(Node node in connectedNodes)
+        {
+            node.SelectAllLooseEnds();
+        }
+    }
+
+    void LooseEndColor()
+    {
+        cubeRenderer.materials[0].DOColor(looseEndColor, transitionTime);
     }
 
     void Big() {
@@ -157,15 +187,21 @@ public class Node : MonoBehaviour {
         }
 
         if (textMeshOperation2Transform != null) {
-            DOTween.To(() => textMeshOperation2Transform.localPosition, x => textMeshOperation2Transform.localPosition = x, new Vector3(0f, -0.5f, -0.76f), transitionTime);
+            DOTween.To(() => textMeshOperation2Transform.localPosition, x => textMeshOperation2Transform.localPosition = x, new Vector3(0f, -0.3f, -0.76f), transitionTime);
             DOTween.To(() => textMeshOperation2Transform.localScale, x => textMeshOperation2Transform.localScale = x, new Vector3(0.05f, 0.05f, 0.05f), transitionTime);
+        }
+
+        if (textMeshOperation3Transform != null)
+        {
+            DOTween.To(() => textMeshOperation3Transform.localPosition, x => textMeshOperation3Transform.localPosition = x, new Vector3(0f, -0.6f, -0.76f), transitionTime);
+            DOTween.To(() => textMeshOperation3Transform.localScale, x => textMeshOperation3Transform.localScale = x, new Vector3(0.05f, 0.05f, 0.05f), transitionTime);
         }
         DOTween.To(() => textMeshAnswerTransform.localPosition, x => textMeshAnswerTransform.localPosition = x, new Vector3(0f, 0.3f, -0.76f), transitionTime);
         DOTween.To(() => textMeshAnswerTransform.localScale, x => textMeshAnswerTransform.localScale = x, new Vector3(0.05f, 0.05f, 0.05f), transitionTime);
         SetText(textMeshUser, turn.user, 100 * userTextMax);
     }
 
-    void Small() {
+    public void Small() {
         cube.DOScale(new Vector3(2f, 1f, 1f), transitionTime);
         DOTween.To(() => textMeshUserTransform.localPosition, x => textMeshUserTransform.localPosition = x, new Vector3(0f, 0f, -0.51f), transitionTime);
         if (textMeshOperation1Transform != null) {
@@ -176,12 +212,19 @@ public class Node : MonoBehaviour {
             DOTween.To(() => textMeshOperation2Transform.localPosition, x => textMeshOperation2Transform.localPosition = x, new Vector3(0f, -0.5f, -0.51f), transitionTime);
             DOTween.To(() => textMeshOperation2Transform.localScale, x => textMeshOperation2Transform.localScale = x, new Vector3(0f, 0f, 0f), transitionTime);
         }
+
+        if (textMeshOperation3Transform != null)
+        {
+            DOTween.To(() => textMeshOperation3Transform.localPosition, x => textMeshOperation3Transform.localPosition = x, new Vector3(0f, -0.5f, -0.51f), transitionTime);
+            DOTween.To(() => textMeshOperation3Transform.localScale, x => textMeshOperation3Transform.localScale = x, new Vector3(0f, 0f, 0f), transitionTime);
+        }
         DOTween.To(() => textMeshAnswerTransform.localPosition, x => textMeshAnswerTransform.localPosition = x, new Vector3(0f, 0.3f, -0.51f), transitionTime);
         DOTween.To(() => textMeshAnswerTransform.localScale, x => textMeshAnswerTransform.localScale = x, new Vector3(0f, 0f, 0f), transitionTime);
         SetText(textMeshUser, turn.user, userTextMax);
     }
 
     void SelectColor() {
+        Debug.Log("Select color");
         // Color
         cubeRenderer.materials[0].DOColor(selecColor, transitionTime);
 
@@ -197,10 +240,16 @@ public class Node : MonoBehaviour {
             link.SelectColor();
         }
 
+        if (connectedNodes.Count == 0 && jumpNode == null)
+        {
+            LooseEndColor();
+        }
+
         colored = true;
     }
 
     public void DeselectColor() {
+        Debug.Log("deselect");
         // Color
         cubeRenderer.materials[0].DOColor(color, transitionTime);
 
@@ -236,16 +285,5 @@ public class Node : MonoBehaviour {
         {
             tm.text = text;
         }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Enter");
-        Selected = true;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        Selected = false;
     }
 }

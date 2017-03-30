@@ -32,7 +32,7 @@
                 ],
                 "operations" : [
                   {
-                    "action" : "template-That's good to hear, what can I help you with today?"
+                    "action" : "template-That's good to hear."
                   }
                 ]
               }
@@ -179,7 +179,7 @@
                         }
                       ],
                       "operations" : [
-                        
+
                       ]
                     }
                   ]}, { "turns":

@@ -52,19 +52,26 @@ public class Manager : MonoBehaviour {
 			rootNodes [i].transform.position = new Vector3 (x, height, z);
 			rootNodes [i].transform.LookAt (new Vector3(0f, height, 0f));
 			PlaceNodes (rootNodes [i]);
-		}
-
-        if(deselectAll) {
-            DeselectAll();
-            deselectAll = false;
+            rootNodes[i].SelectAllLooseEnds();
         }
+
+        //if(deselectAll) {
+        //    DeselectAll();
+        //    deselectAll = false;
+        //}
 	}
 
-    public void SelectAll()
+    public void SelectAllSelected()
     {
         foreach(Node node in rootNodes)
         {
-            node.SelectAll();
+            if(node.Selected)
+            {
+                node.Selected = true;
+                Debug.Log("Select");
+            }
+            
+            node.SelectAllSelected();
         }
     }
 

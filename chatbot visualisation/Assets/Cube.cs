@@ -12,11 +12,11 @@ public class Cube : MonoBehaviour {
     private bool triggerEnter = false;
     private bool keepSelected = false;
 
+
 	// Use this for initialization
 	void Start () {
         parentNode = GetComponentInParent<Node>();
         manager = FindObjectOfType<Manager>();
-        Debug.Log(manager);
 	}
 
     void Update() {
@@ -31,6 +31,7 @@ public class Cube : MonoBehaviour {
             {
                 if(sc.triggerButtonPress)
                 {
+                    Debug.Log("keep selected");
                     keepSelected = !keepSelected;
                 }
             }
@@ -48,8 +49,10 @@ public class Cube : MonoBehaviour {
         if(!keepSelected)
         {
             parentNode.Selected = false;
-            manager.SelectAll();
         }
+        Debug.Log("Selecting all");
+        manager.SelectAllSelected();
+        Debug.Log("================================================");
         triggerEnter = false;
     }
 }
